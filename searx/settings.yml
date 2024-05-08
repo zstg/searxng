@@ -2,7 +2,7 @@ general:
   # Debug mode, only for development. Is overwritten by ${SEARXNG_DEBUG}
   debug: false
   # displayed name
-  instance_name: "SearXNG"
+  instance_name: "Stig's search"
   # For example: https://example.com/privacy
   privacypolicy_url: false
   # use true to use your own donation page written in searx/info/en/donate.md
@@ -11,7 +11,7 @@ general:
   # mailto:contact@example.com
   contact_url: false
   # record stats
-  enable_metrics: true
+  enable_metrics: false
 
 brand:
   new_issue_url: https://github.com/searxng/searxng/issues/new
@@ -32,24 +32,24 @@ search:
   # Existing autocomplete backends: "dbpedia", "duckduckgo", "google", "yandex", "mwmbl",
   # "seznam", "startpage", "stract", "swisscows", "qwant", "wikipedia" - leave blank to turn it off
   # by default.
-  autocomplete: ""
+  autocomplete: "google"
   # minimun characters to type before autocompleter starts
-  autocomplete_min: 4
+  autocomplete_min: 1
   # Default search language - leave blank to detect from browser information or
   # use codes from 'languages.py'
   default_lang: "auto"
   # max_page: 0  # if engine supports paging, 0 means unlimited numbers of pages
   # Available languages
-  # languages:
+  languages:
   #   - all
   #   - en
-  #   - en-US
+    - en-US
   #   - de
   #   - it-IT
   #   - fr
   #   - fr-BE
   # ban time in seconds after engine errors
-  ban_time_on_fail: 5
+  ban_time_on_fail: 15
   # max ban time in seconds after engine errors
   max_ban_time_on_fail: 120
   suspended_times:
@@ -77,14 +77,14 @@ server:
   bind_address: "127.0.0.1"
   # public URL of the instance, to ensure correct inbound links. Is overwritten
   # by ${SEARXNG_URL}.
-  base_url: false  # "http://example.com/location"
+  base_url: "https://stig-searx.netlify.app/"  # "http://example.com/location"
   limiter: false  # rate limit the number of request on the instance, block some bots
-  public_instance: false  # enable features designed only for public instances
+  public_instance: true  # enable features designed only for public instances
 
   # If your instance owns a /etc/searxng/settings.yml file, then set the following
   # values there.
 
-  secret_key: "ultrasecretkey"  # Is overwritten by ${SEARXNG_SECRET}
+  secret_key: "ultraZecretkey"  # Is overwritten by ${SEARXNG_SECRET}
   # Proxying image results through searx
   image_proxy: false
   # 1.0 and 1.1 are supported
@@ -113,7 +113,7 @@ ui:
   # it decreases the privacy, since the browser can records the page titles.
   query_in_title: false
   # infinite_scroll: When true, automatically loads the next page when scrolling to bottom of the current page.
-  infinite_scroll: false
+  infinite_scroll: true
   # ui theme
   default_theme: simple
   # center the results ?
