@@ -1356,4 +1356,8 @@ application = app
 patch_application(app)
 
 if __name__ == "__main__":
-    run()
+    run(debug=True)
+    # Add the following lines
+    from flask_frozen import Freezer
+    freezer = Freezer(app)
+    freezer.freeze()
